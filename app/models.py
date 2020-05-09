@@ -49,3 +49,10 @@ class Role(db.Model):
 
     def __repr__(self):
         return f'User {self.name}'
+    
+class Quote:
+    def __init__(self,id, author, quote, permalink):
+        self.id = id
+        self.author = author 
+        self.quote  = quote
+        self.permalink =  permalink
