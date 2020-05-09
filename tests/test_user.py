@@ -17,3 +17,16 @@ class UserModelTest(unittest.TestCase):
         Acsertains if password is being hashed  and if pass_secure contains a value
         '''
         self.assertTrue(self.new_user.password_hash is not None)
+
+    def test_no_access_password(self):
+        '''
+        Confirms if application raises an AttributeError when u try to access password property
+        '''
+        with self.assertRaises(AttributeError):
+            self.new_user.password
+
+    def test_password_verification(self):
+        '''
+        Test that verifies password hash when we pass correct password
+        '''
+        self.assertTrue(self.new_user.verify_password('banana'))
