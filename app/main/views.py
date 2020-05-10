@@ -1,9 +1,31 @@
 from flask import render_template,request,redirect,url_for,abort
 from . import main
 from flask_login import login_required,current_user
-from ..models import User
+from ..models import User,Blog
+from ..requests import get_quote
 from .forms import UpdateProfile
 from .. import db,photos
+
+@main.route('/')
+def index():
+    '''
+    View root page function that returns the index page and its data
+    '''
+    title = 'Home - Welcome to The Plandrel Blog Website'
+    
+    quotes = get_quote()
+
+    page = request.args.get('page', 1, type=int)
+    posts = Blog.query.order_by(Blog.posted.desc()).all()
+    return render_template('index.html',title = title,quotes = quotes, posts=posts)
+
+@main.route('/about')
+def about():
+    '''
+    Information page about the blog website
+    '''
+    return render_template('about.html')
+
 
 @main.route('/user/<uname>')
 def profile(uname):
