@@ -4,3 +4,9 @@
 {% block navbar %}
     {% include 'navbar.html' %}
 {% endblock %}
+
+
+{% block scripts %}
+{{ super() }}
+{{ moment.include_moment() }}
+{% endblock %}

@@ -5,6 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_uploads import UploadSet,configure_uploads,IMAGES
 from flask_mail import Mail
+from flask_moment import Moment
 
 
 login_manager = LoginManager()
@@ -16,9 +17,12 @@ db = SQLAlchemy()
 mail = Mail()
 photos = UploadSet('photos',IMAGES)
 
+
 def create_app(config_name):
 
     app = Flask(__name__)
+    moment = Moment(app)
+    
 
     # Creating the app configurations
     app.config.from_object(config_options[config_name])
@@ -38,5 +42,11 @@ def create_app(config_name):
 
     from .auth import auth as auth_blueprint
     app.register_blueprint(auth_blueprint,url_prefix = '/authenticate')
+
+    from .blog import blog as blog_blueprint
+    app.register_blueprint(blog_blueprint,url_prefix = '/')
+
+    from .users import users as users_blueprint
+    app.register_blueprint(users_blueprint, url_prefix = '/')
 
     return app
