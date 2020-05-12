@@ -46,7 +46,7 @@ Python3.6
 # Installation steps
 $ git clone https://github.com/tw8130/BLOG-WEB.git
 
-$ cd Pitch-it
+$ cd Blog
 
 $ source virtual/bin/activate
 

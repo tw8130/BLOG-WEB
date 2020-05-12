@@ -6,13 +6,14 @@
     {{ super() }}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Akronim|Bellefair|Joti+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Charm:wght@700&family=Galada&family=Lakki+Reddy&display=swap" rel="stylesheet">
 {% endblock %}
 
 
 
 {% block content %}
 
-<div class="jumbotron">
+<div class="jumbotron" style="font-family: 'Galada', cursive; font-size: 30px;">
         <h1 class="display-4">Bloggy Blogs</h1>
         <p class="lead">This is a personal blogging website where you can create and share your opinions and other users can read and comment on them. 
             Additionally, there is a feature that displays random quotes to inspire users. </p>
@@ -23,7 +24,7 @@
 
 
 
-    <div class="container">
+    <div class="container" style="font-family: 'Charm', cursive; font-size: 25px;">
       <h3>Random Quotes</h3>
 
      
@@ -64,7 +65,7 @@
       hand();
       setInterval(hand, 2000);
     </script>
-    <div class="container">
+    <div class="container" style="font-family: 'Lakki Reddy', cursive;">
       <h2>Blogs Page</h2>
       {% for post in posts %}
       <div class="card">

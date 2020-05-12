@@ -11,13 +11,13 @@ class CommentTest(unittest.TestCase):
         '''
         Set up method that will run before every Test
         '''
-        self.new_comment = Comment(body = 'That is a great blog post', blog_id = 1 , posted = '04/05/2020',author_id = 4)
+        self.new_comment = Comment(body = 'That is a great blog post', blog_id = 1 , posted ='2020-04-05 08:26:19.580874' ,author_id = 4)
 
     def tearDown(self):
         Comment.query.delete()
 
     def test_check_instance_variables(self):
-        self.assertEquals(self.new_comment.body,'One great post')
+        self.assertEquals(self.new_comment.body,'That is a great blog post')
         self.assertEquals(self.new_comment.posted,'2020-04-05 08:26:19.580874')
         self.assertEquals(self.new_comment.author_id,4)
         self.assertEquals(self.new_comment.blog_id,1)
